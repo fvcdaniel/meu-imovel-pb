@@ -8,6 +8,9 @@ gem 'rails', '3.1.0'
 gem 'sqlite3'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
+gem 'devise'
+gem "simple_form"
+
 
 
 # Gems used only for assets and not required
