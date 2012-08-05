@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cidade: 
+  nome: MyString
+  chave: 1
+
+two:
+  cidade: 
+  nome: MyString
+  chave: 1

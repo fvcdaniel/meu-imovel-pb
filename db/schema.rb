@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120805121658) do
+ActiveRecord::Schema.define(:version => 20120805203249) do
+
+  create_table "bairros", :force => true do |t|
+    t.integer  "cidade_id"
+    t.string   "nome"
+    t.integer  "chave"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bairros", ["cidade_id"], :name => "index_bairros_on_cidade_id"
+
+  create_table "cidades", :force => true do |t|
+    t.integer  "estado_id"
+    t.string   "nome"
+    t.integer  "chave"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cidades", ["estado_id"], :name => "index_cidades_on_estado_id"
 
   create_table "contatos", :force => true do |t|
     t.string   "nome"
@@ -25,6 +45,13 @@ ActiveRecord::Schema.define(:version => 20120805121658) do
   end
 
   add_index "contatos", ["anunciante_id"], :name => "index_contatos_on_anunciante_id"
+
+  create_table "estados", :force => true do |t|
+    t.string   "nome"
+    t.string   "uf"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "imagems", :force => true do |t|
     t.string   "arquivo"
@@ -53,6 +80,12 @@ ActiveRecord::Schema.define(:version => 20120805121658) do
 
   add_index "imovels", ["user_id"], :name => "index_imovels_on_user_id"
 
+  create_table "pretensaos", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -63,6 +96,12 @@ ActiveRecord::Schema.define(:version => 20120805121658) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "tipos", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
