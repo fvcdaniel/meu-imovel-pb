@@ -1,0 +1,7 @@
+$('#imovel_cidade_id').empty();
+<% for cidade in @cidades %>
+	
+	$('#imovel_cidade_id').append($("<option></option>").attr("value",<%= cidade.id %>).text('<%= escape_javascript(cidade.nome) %>'));
+
+<% end %>
+$('#imovel_cidade_id').change();

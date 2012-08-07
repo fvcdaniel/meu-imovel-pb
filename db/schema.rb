@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120805203249) do
+ActiveRecord::Schema.define(:version => 20120805212610) do
 
   create_table "bairros", :force => true do |t|
     t.integer  "cidade_id"
@@ -64,20 +64,36 @@ ActiveRecord::Schema.define(:version => 20120805203249) do
   add_index "imagems", ["imovel_id"], :name => "index_imagems_on_imovel_id"
 
   create_table "imovels", :force => true do |t|
-    t.string   "titulo"
-    t.string   "tipo"
-    t.decimal  "valor"
-    t.integer  "area"
+    t.integer  "user_id"
+    t.integer  "estado_id"
+    t.integer  "cidade_id"
+    t.integer  "bairro_id"
+    t.integer  "tipo_id"
+    t.integer  "pretensao_id"
+    t.string   "situacao"
+    t.string   "endereco"
     t.integer  "quarto"
     t.integer  "suite"
-    t.integer  "vaga"
-    t.string   "endereco"
+    t.integer  "banheiro"
+    t.integer  "sala"
+    t.integer  "cozinha"
+    t.integer  "dependencia"
+    t.decimal  "area"
+    t.string   "posicao"
+    t.integer  "garagem"
+    t.integer  "piscina"
+    t.decimal  "valor"
+    t.decimal  "condominio"
     t.text     "descricao"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "imovels", ["bairro_id"], :name => "index_imovels_on_bairro_id"
+  add_index "imovels", ["cidade_id"], :name => "index_imovels_on_cidade_id"
+  add_index "imovels", ["estado_id"], :name => "index_imovels_on_estado_id"
+  add_index "imovels", ["pretensao_id"], :name => "index_imovels_on_pretensao_id"
+  add_index "imovels", ["tipo_id"], :name => "index_imovels_on_tipo_id"
   add_index "imovels", ["user_id"], :name => "index_imovels_on_user_id"
 
   create_table "pretensaos", :force => true do |t|

@@ -1,6 +1,11 @@
 Anunciar2::Application.routes.draw do
-  devise_for :users
+  resources :imovels
 
+  devise_for :users
+  
+  match 'imovels/dynamic_cidades/:id' => 'imovels#dynamic_cidades'
+  match 'imovels/dynamic_bairros/:id' => 'imovels#dynamic_bairros'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  estado: 
+  cidade: 
+  bairro: 
+  tipo: 
+  pretensao: 
+  situacao: MyString
+  endereco: MyString
+  quarto: 1
+  suite: 1
+  banheiro: 1
+  sala: 1
+  cozinha: 1
+  dependencia: 1
+  area: 9.99
+  posicao: MyString
+  garagem: 1
+  piscina: 1
+  valor: 9.99
+  condominio: 9.99
+  descricao: MyText
+
+two:
+  user: 
+  estado: 
+  cidade: 
+  bairro: 
+  tipo: 
+  pretensao: 
+  situacao: MyString
+  endereco: MyString
+  quarto: 1
+  suite: 1
+  banheiro: 1
+  sala: 1
+  cozinha: 1
+  dependencia: 1
+  area: 9.99
+  posicao: MyString
+  garagem: 1
+  piscina: 1
+  valor: 9.99
+  condominio: 9.99
+  descricao: MyText

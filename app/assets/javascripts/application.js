@@ -12,3 +12,17 @@
 $('.carousel').carousel({
     interval: 3000
 })
+
+jQuery(document).ready(function() {
+	jQuery('#imovel_estado_id').change(function() {
+        var data=$('#imovel_estado_id').val();
+		$.ajax({
+            type: "GET",
+             url: "http://"+location.host+"/imovels/dynamic_cidades/"+data,
+            data: data,
+            dataType:"script"
+      	});
+      	//$('#imovels_cidade_update').load("http://"+location.host+"/imovels/dynamic_cidades/"+data);
+   });
+   
+});  
