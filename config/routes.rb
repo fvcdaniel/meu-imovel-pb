@@ -1,4 +1,8 @@
 Anunciar2::Application.routes.draw do
+  resources :banners
+
+  resources :imagems
+
   resources :imovels
 
   devise_for :users

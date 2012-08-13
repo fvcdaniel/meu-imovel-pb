@@ -1,0 +1,33 @@
+<h1>Linstando Banners</h1>
+
+<table class="table table-condensed">
+	<thead>
+		<tr>
+		    <th>Imovel</th>
+		    <th>Inicio</th>
+		    <th>Fim</th>
+		    <th>Ativo</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @banners.each do |banner| %>
+		  <tr>
+		    <td><%= banner.imovel %></td>
+		    <td><%= banner.inicio %></td>
+		    <td><%= banner.fim %></td>
+		    <td><%= banner.ativo %></td>
+		    <td><%= link_to 'Visualizar', banner %></td>
+		    <td><%= link_to 'Editar', edit_banner_path(banner) %></td>
+		    <td><%= link_to 'Deletar', banner, confirm: 'Você tem certeza?', method: :delete %></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br />
+
+<%= link_to 'Novo Banner', new_banner_path %>

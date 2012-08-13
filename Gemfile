@@ -13,6 +13,12 @@ gem 'simple_form'
 gem 'cancan'
 gem 'rolify'
 
+gem 'brazilian-rails' # gerando o erro abaixo:
+#/Users/danielcardoso/.rvm/gems/ruby-1.9.3-p125/gems/bundler-1.1.5/lib/bundler/runtime.rb:68:in `block (2 levels) in require': iconv w
+#ill be deprecated in the future, use String#encode instead. 
+
+gem 'carrierwave'
+gem 'rmagick'
 
 
 # Gems used only for assets and not required

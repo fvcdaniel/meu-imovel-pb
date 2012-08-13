@@ -1,63 +1,44 @@
-<h1>Listing imovels</h1>
+<h1>Listando Imoveis</h1>
+<br />
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Estado</th>
-    <th>Cidade</th>
-    <th>Bairro</th>
-    <th>Tipo</th>
-    <th>Pretensao</th>
-    <th>Situacao</th>
-    <th>Endereco</th>
-    <th>Quarto</th>
-    <th>Suite</th>
-    <th>Banheiro</th>
-    <th>Sala</th>
-    <th>Cozinha</th>
-    <th>Dependencia</th>
-    <th>Area</th>
-    <th>Posicao</th>
-    <th>Garagem</th>
-    <th>Piscina</th>
-    <th>Valor</th>
-    <th>Condominio</th>
-    <th>Descricao</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-condensed">
+  <thead>
+	  <tr>
+	  	<th>Titulo</th>
+	    <th>Cidade</th>
+	    <th>Bairro</th>
+	    <th>Tipo</th>
+	    <th>Pretensao</th>
+	    <th>Situacao</th>
+	    <th>Area</th>
+	    <th>Valor</th>
+	    <th>Descricao</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+  </thead>
 
 <% @imovels.each do |imovel| %>
-  <tr>
-    <td><%= imovel.user %></td>
-    <td><%= imovel.estado %></td>
-    <td><%= imovel.cidade %></td>
-    <td><%= imovel.bairro %></td>
-    <td><%= imovel.tipo %></td>
-    <td><%= imovel.pretensao %></td>
-    <td><%= imovel.situacao %></td>
-    <td><%= imovel.endereco %></td>
-    <td><%= imovel.quarto %></td>
-    <td><%= imovel.suite %></td>
-    <td><%= imovel.banheiro %></td>
-    <td><%= imovel.sala %></td>
-    <td><%= imovel.cozinha %></td>
-    <td><%= imovel.dependencia %></td>
-    <td><%= imovel.area %></td>
-    <td><%= imovel.posicao %></td>
-    <td><%= imovel.garagem %></td>
-    <td><%= imovel.piscina %></td>
-    <td><%= imovel.valor %></td>
-    <td><%= imovel.condominio %></td>
-    <td><%= imovel.descricao %></td>
-    <td><%= link_to 'Show', imovel %></td>
-    <td><%= link_to 'Edit', edit_imovel_path(imovel) %></td>
-    <td><%= link_to 'Destroy', imovel, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <tbody>
+	  <tr>
+	  	<td><%= imovel.titulo %></td>
+	    <td><%= imovel.cidade %></td>
+	    <td><%= imovel.bairro %></td>
+	    <td><%= imovel.tipo %></td>
+	    <td><%= imovel.pretensao %></td>
+	    <td><%= imovel.situacao %></td>
+	    <td><%= imovel.area %></td>
+	    <td><%= imovel.valor %></td>
+	    <td><%= imovel.descricao %></td>
+	    <td><%= link_to 'Visualizar', imovel %></td>
+	    <td><%= link_to 'Editar', edit_imovel_path(imovel) %></td>
+	    <td><%= link_to 'Excluir', imovel, confirm: 'Você tem certeza?', method: :delete %></td>
+	  </tr>
+  </tbody>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Imovel', new_imovel_path %>
+<%= link_to 'Novo Imovel', new_imovel_path %>

@@ -1,35 +1,36 @@
-<%= simple_form_for(@imovel) do |f| %>
+<br clear="all" \>
+<%= simple_form_for(@imovel, :html => { :class => 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.association :estado %>
     
-	<%if params[:estado_id]%>
-		<%= f.association :cidade, :collection => Estado.find(params[:estado_id]).cidades(:order => 'nome') %>
+	<%unless params[:imovel].nil? or params[:imovel][:estado_id].nil? %>
+		<%= f.association :cidade, :collection => @imovel.estado.cidades(:order => 'nome') %>
 	<%else%>
 		<%= f.association :cidade, :collection => [] %>
 	<%end%>
-	
-	<%if params[:cidade_id]%>
-		<%= f.association :bairro, :collection => Cidade.find(params[:cidade_id]).bairros(:order => 'nome') %>
+	<%unless params[:imovel].nil? or params[:imovel][:cidade_id].nil? %>
+		<%= f.association :bairro, :collection => @imovel.estado.cidades.where(:id => params[:imovel][:cidade_id]).first.bairros(:order => 'nome') %>
 	<%else%>
 		<%= f.association :bairro, :collection => [] %>
 	<%end%>
     <%= f.association :tipo %>
     <%= f.association :pretensao %>
-    <%= f.input :situacao, :as => :radio_buttons, :collection => ["Novo", "Usado"] %>
-    <%= f.input :endereco %>
-    <%= f.input :quarto, :collection => 1..10 %>
-    <%= f.input :suite, :collection => 1..5 %>
-    <%= f.input :banheiro, :collection => 1..7 %>
-    <%= f.input :sala, :collection => 1..5 %>
-    <%= f.input :cozinha, :collection => 1..5 %>
-    <%= f.input :dependencia, :collection => 1..3 %>
+    <%= f.input :titulo, :hint => 'nome do empreendimento' %>
+    <%= f.input :situacao, :collection => ["Novo", "Usado"], :as => :radio_buttons, :item_wrapper_class => 'inline' %>
+    <%= f.input :endereco, :hint => 'visível apenas para o anunciante!' %>
+    <%= f.input :quarto, :collection => 1..10, :as => :radio_buttons, :item_wrapper_class => 'inline' %>
+    <%= f.input :suite, :collection => 1..5, :as => :radio_buttons, :item_wrapper_class => 'inline' %>
+    <%= f.input :banheiro, :collection => 1..7, :as => :radio_buttons, :item_wrapper_class => 'inline' %>
+    <%= f.input :sala, :collection => 1..5, :as => :radio_buttons, :item_wrapper_class => 'inline' %>
+    <%= f.input :cozinha, :collection => 1..5, :as => :radio_buttons, :item_wrapper_class => 'inline' %>
+    <%= f.input :dependencia, :collection => 1..3, :as => :radio_buttons, :item_wrapper_class => 'inline' %>
     <%= f.input :area %>
-    <%= f.input :posicao %>
-    <%= f.input :garagem, :collection => 1..5 %>
-    <%= f.input :piscina, :collection => 1..5 %>
-    <%= f.input :valor, :as => :currency %>
+    <%= f.input :posicao, :hint => 'Ex: nascente/sul, nascente/norte' %>
+    <%= f.input :garagem, :collection => 1..5, :as => :radio_buttons, :item_wrapper_class => 'inline' %>
+    <%= f.input :piscina, :collection => 1..5, :as => :radio_buttons, :item_wrapper_class => 'inline' %>
+    <%= f.input :valor %>
     <%= f.input :condominio %>
     <%= f.input :descricao %>
   </div>

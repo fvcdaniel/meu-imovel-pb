@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Imovel:</b>
+  <%= @banner.imovel %>
+</p>
+
+<p>
+  <b>Inicio:</b>
+  <%= @banner.inicio %>
+</p>
+
+<p>
+  <b>Fim:</b>
+  <%= @banner.fim %>
+</p>
+
+<p>
+  <b>Ativo:</b>
+  <%= @banner.ativo %>
+</p>
+
+
+<%= link_to 'Edit', edit_banner_path(@banner) %> |
+<%= link_to 'Back', banners_path %>

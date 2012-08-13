@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Arquivo:</b>
+  <%= @imagem.arquivo %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @imagem.nome %>
+</p>
+
+<p>
+  <b>Capa:</b>
+  <%= @imagem.capa %>
+</p>
+
+<p>
+  <b>Imovel:</b>
+  <%= @imagem.imovel %>
+</p>
+
+
+<%= link_to 'Edit', edit_imagem_path(@imagem) %> |
+<%= link_to 'Back', imagems_path %>

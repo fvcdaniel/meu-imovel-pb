@@ -1,4 +1,6 @@
 class ImovelsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:create, :new, :edit, :update]
+  
   # GET /imovels
   # GET /imovels.json
   def index
@@ -41,10 +43,11 @@ class ImovelsController < ApplicationController
   # POST /imovels.json
   def create
     @imovel = Imovel.new(params[:imovel])
+    @imovel.user = current_user 
 
     respond_to do |format|
       if @imovel.save
-        format.html { redirect_to @imovel, notice: 'Imovel was successfully created.' }
+        format.html { redirect_to new_imagem_path(:id=>@imovel.id), notice: 'Imovel criado com sucesso.'}
         format.json { render json: @imovel, status: :created, location: @imovel }
       else
         format.html { render action: "new" }

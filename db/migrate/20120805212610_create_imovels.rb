@@ -15,12 +15,12 @@ class CreateImovels < ActiveRecord::Migration
       t.integer :sala
       t.integer :cozinha
       t.integer :dependencia
-      t.decimal :area
+      t.decimal :area, :precision => 6, :scale => 2
       t.string :posicao
       t.integer :garagem
       t.integer :piscina
-      t.decimal :valor
-      t.decimal :condominio
+      t.decimal :valor, :precision => 10, :scale => 2
+      t.decimal :condominio, :precision => 6, :scale => 2
       t.text :descricao
 
       t.timestamps

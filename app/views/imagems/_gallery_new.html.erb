@@ -1,0 +1,18 @@
+<%if @imagem.imovel%>
+	<ul class="thumbnails">
+		<% for imagem in @imagem.imovel.imagems %>
+		    <li class="span3">
+			    <a href="#" class="thumbnail">
+			    	<%= image_tag imagem.arquivo_url(:thumb), :size => "200x200"  %>
+			    </a>
+			    <center>
+			    	<h3><%= imagem.nome%></h3>
+					<div class="actions">
+						<%= link_to "editar", edit_imagem_path(imagem) %> |
+						<%= link_to "remover", imagem, :confirm => 'Are you sure?', :method => :delete %>
+					</div>
+				</center>
+		    </li>
+	    <%end%>
+    </ul>
+<%end%>

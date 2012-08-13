@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120805212610) do
+ActiveRecord::Schema.define(:version => 20120813001913) do
 
   create_table "bairros", :force => true do |t|
     t.integer  "cidade_id"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(:version => 20120805212610) do
   end
 
   add_index "bairros", ["cidade_id"], :name => "index_bairros_on_cidade_id"
+
+  create_table "banners", :force => true do |t|
+    t.integer  "imovel_id"
+    t.datetime "inicio"
+    t.datetime "fim"
+    t.boolean  "ativo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "banners", ["imovel_id"], :name => "index_banners_on_imovel_id"
 
   create_table "cidades", :force => true do |t|
     t.integer  "estado_id"
@@ -56,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20120805212610) do
   create_table "imagems", :force => true do |t|
     t.string   "arquivo"
     t.string   "nome"
+    t.boolean  "capa"
     t.integer  "imovel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -78,15 +90,16 @@ ActiveRecord::Schema.define(:version => 20120805212610) do
     t.integer  "sala"
     t.integer  "cozinha"
     t.integer  "dependencia"
-    t.decimal  "area"
+    t.decimal  "area",         :precision => 6,  :scale => 2
     t.string   "posicao"
     t.integer  "garagem"
     t.integer  "piscina"
-    t.decimal  "valor"
-    t.decimal  "condominio"
+    t.decimal  "valor",        :precision => 10, :scale => 2
+    t.decimal  "condominio",   :precision => 6,  :scale => 2
     t.text     "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "titulo"
   end
 
   add_index "imovels", ["bairro_id"], :name => "index_imovels_on_bairro_id"

@@ -13,16 +13,6 @@ $('.carousel').carousel({
     interval: 3000
 })
 
-jQuery(document).ready(function() {
-	jQuery('#imovel_estado_id').change(function() {
-        var data=$('#imovel_estado_id').val();
-		$.ajax({
-            type: "GET",
-             url: "http://"+location.host+"/imovels/dynamic_cidades/"+data,
-            data: data,
-            dataType:"script"
-      	});
-      	//$('#imovels_cidade_update').load("http://"+location.host+"/imovels/dynamic_cidades/"+data);
-   });
-   
-});  
+$("#imovel_area").maskMoney({allowZero:false, allowNegative:true, defaultZero:false});
+$("#imovel_valor").maskMoney({symbol:'R$ ', showSymbol:true, thousands:'.', decimal:',', symbolStay: true});
+$("#imovel_condominio").maskMoney({symbol:'R$ ', showSymbol:true, thousands:'.', decimal:',', symbolStay: true});

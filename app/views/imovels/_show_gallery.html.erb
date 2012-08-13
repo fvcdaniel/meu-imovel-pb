@@ -1,0 +1,37 @@
+<div id="page">
+	<div id="container" class="containergallery">
+		<h1>Imagens de <%=@imovel.titulo%></h1>
+
+		<!-- Start Advanced Gallery Html Containers -->
+		<div id="gallery">
+			<div id="controls" class="controls"></div>
+			<div class="slideshow-container">
+				<div id="loading" class="loader"></div>
+				<div id="slideshow" class="slideshow"></div>
+			</div>
+			<div id="caption" class="caption-container"></div>
+		</div>
+		<div id="thumbs" class="navigation">
+			<ul class="thumbs noscript">
+				<%@imovel.imagems.each do |i|%>
+					<%url = i.arquivo.url%>
+					<%url = 'http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_s.jpg' if !url%>
+					<li class="imagem">
+						<a class="thumb" name="leaf" href="<%=i.arquivo.thumb.url%>" title="Title #0">
+							<%= image_tag url, :alt => 'Title #0', :size => "75x75" %>
+						</a>
+						<div class="caption">
+							<div class="download">
+								<a href="<%=i.arquivo.url%>">Download Original</a>
+							</div>
+							<div class="image-title"><%=i.nome%></div>
+							<div class="image-desc"><%=i.imovel.descricao%></div>
+						</div>
+					</li>
+				<%end%>
+			</ul>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+</div>
+<div id="footer">&copy; 2009 Trent Foley</div>

@@ -1,0 +1,41 @@
+<h1>Listando Imagens</h1>
+<br>
+
+<table class="table table-condensed">
+	<thead>
+		<tr>
+			<th>Arquivo</th>
+			<th>Nome</th>
+			<th>Capa</th>
+			<th>Imovel</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+<% @imagems.each do |imagem| %>
+  <tbody>
+	  <tr align="center">
+	    <td>
+	    	<ul class="thumbnails">
+			    <li class="span2">
+				    <a href="#" class="thumbnail">
+				    	<%= image_tag imagem.arquivo_url(:thumb), :size => "70x70"  %>
+				    </a>
+			    </li>
+	    	</ul>
+	    </td>
+	    <td><%= imagem.nome %></td>
+	    <td><%= imagem.capa %></td>
+	    <td><%= imagem.imovel.id.to_s + "-" + imagem.imovel.titulo %></td>
+	    <td><%= link_to 'Show', imagem %></td>
+	    <td><%= link_to 'Edit', edit_imagem_path(imagem) %></td>
+	    <td><%= link_to 'Destroy', imagem, confirm: 'Are you sure?', method: :delete %></td>
+	  </tr>
+  </tbody>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova Imagem', new_imagem_path %>

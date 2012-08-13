@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  imovel: 
+  inicio: 2012-08-12 21:19:13
+  fim: 2012-08-12 21:19:13
+  ativo: false
+
+two:
+  imovel: 
+  inicio: 2012-08-12 21:19:13
+  fim: 2012-08-12 21:19:13
+  ativo: false

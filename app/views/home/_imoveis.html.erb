@@ -1,0 +1,15 @@
+<div class="row-fluid img-row-home">
+	<center>
+		
+		<% @imoveis.each.with_index do |i,index|%>
+		    <div class="span4" style="margin-left: <%= '0px' if (((index+1)%4) == 0) %>">
+		    	<h2 class="img-h2-home">
+		    		<%= image_tag get_imovel_capa_url(i), :alt => 'imagem', :size => "60x60", :class => "img-home" %>
+		    		<%= i.titulo%>
+		    	</h2>
+				<p class="img-p-home"><%=i.descricao%></p>
+				<p class="readmore"><%= link_to 'Continue Lendo ', i %>&raquo;</p>
+		    </div>
+	    <%end%>
+	</center>
+</div>

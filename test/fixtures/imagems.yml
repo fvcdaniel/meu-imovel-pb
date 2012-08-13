@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  arquivo: MyString
+  nome: MyString
+  capa: false
+  imovel: 
+
+two:
+  arquivo: MyString
+  nome: MyString
+  capa: false
+  imovel: 
