@@ -5,7 +5,6 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem 'devise'
@@ -19,6 +18,10 @@ gem 'brazilian-rails' # gerando o erro abaixo:
 
 gem 'carrierwave'
 gem 'rmagick'
+
+group :development do
+  gem 'sqlite3'  
+end
 
 
 # Gems used only for assets and not required
