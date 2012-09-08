@@ -5,8 +5,8 @@ class Imovel < ActiveRecord::Base
   belongs_to :bairro
   belongs_to :tipo
   belongs_to :pretensao
-  has_many :imagems
-  has_many :banners
+  has_many :imagems, :dependent => :destroy
+  has_many :banners, :dependent => :destroy
   
   validates_presence_of :user, :estado, :cidade, :bairro, :tipo, :pretensao, :situacao, :titulo, :valor, :descricao
   #validates_numericality_of :endereco, :if => Proc.new { |imovel| imovel.endereco.length > 0 }

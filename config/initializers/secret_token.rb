@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Anunciar2::Application.config.secret_token = 'b475ee26ab3c36cd4b4e490cd7788d98b50b7467d4e6d909d87787de7302e1b4e975b6a17447fde3c17ffdb3f1e05b7364668329b80243f4d600c2afc4d09a02'
+Anunciar2::Application.config.secret_token = 'e01c857f1c63ffa17ee6938531688d8bdda4e4a5da12f5877230fac5ffe81f4c5faa84c65bf20c37482f76732e8094fe915f16d09d53aac476fa68e6c02e921f'
