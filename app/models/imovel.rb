@@ -1,4 +1,8 @@
 class Imovel < ActiveRecord::Base
+  attr_accessible :user, :estado, :cidade, :bairro, :tipo, :pretensao, :situacao, :endereco, :quarto, 
+                  :suite, :banheiro, :sala, :cozinha, :dependencia, :area, :posicao, :garagem, :piscina,
+                  :valor, :condominio, :descricao, :titulo
+  
   belongs_to :user
   belongs_to :estado
   belongs_to :cidade
