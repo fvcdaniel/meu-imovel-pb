@@ -43,6 +43,8 @@ class ImovelsController < ApplicationController
   # POST /imovels.json
   def create
     @imovel = Imovel.new(params[:imovel])
+    puts params[:imovel]
+    @imovel.estado = Estado.find(params[:imovel][:estado_id])
     @imovel.user = current_user 
 
     respond_to do |format|
