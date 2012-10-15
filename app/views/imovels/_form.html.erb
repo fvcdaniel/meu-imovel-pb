@@ -5,16 +5,18 @@
   <div class="form-inputs">
     <%= f.association :estado %>
     
-	<%unless params[:imovel].nil? or params[:imovel][:estado_id].nil? %>
+	<%unless @imovel.estado.blank? %>
 		<%= f.association :cidade, :collection => @imovel.estado.cidades(:order => 'nome') %>
+		<%unless @imovel.estado.cidade.blank? %>
+			<%= f.association :bairro, :collection => @imovel.estado.cidades.where(:id => params[:imovel][:cidade_id]).first.bairros(:order => 'nome') %>
+		<%else%>
+			<%= f.association :bairro, :collection => [] %>
+		<%end%>
 	<%else%>
 		<%= f.association :cidade, :collection => [] %>
-	<%end%>
-	<%unless params[:imovel].nil? or params[:imovel][:cidade_id].nil? %>
-		<%= f.association :bairro, :collection => @imovel.estado.cidades.where(:id => params[:imovel][:cidade_id]).first.bairros(:order => 'nome') %>
-	<%else%>
 		<%= f.association :bairro, :collection => [] %>
 	<%end%>
+
     <%= f.association :tipo %>
     <%= f.association :pretensao %>
     <%= f.input :titulo, :hint => 'nome do empreendimento' %>

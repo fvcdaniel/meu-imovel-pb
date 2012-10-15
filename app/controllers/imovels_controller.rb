@@ -44,7 +44,7 @@ class ImovelsController < ApplicationController
   def create
     @imovel = Imovel.new(params[:imovel])
     puts params[:imovel]
-    @imovel.estado = Estado.find(params[:imovel][:estado_id])
+    #@imovel.estado = Estado.find(params[:imovel][:estado_id]) if params[:imovel][:estado_id]
     @imovel.user = current_user 
 
     respond_to do |format|
